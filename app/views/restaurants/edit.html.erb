@@ -1,1 +1,7 @@
 <h1>Update information on <%= @restaurant.name %></h1>
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES, include_blank: false %>
+  <%= f.submit %>
+<% end %>

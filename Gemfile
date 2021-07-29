@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Authentication
 gem 'devise', '~> 4.8'
+# Authorization
+gem 'pundit', '~> 2.1'
 
 # Better forms
 gem 'simple_form'
