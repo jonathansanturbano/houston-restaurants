@@ -6,7 +6,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:john)
   end
 
-  test "can see restaurants index" do
+  test "can see restaurant index" do
     get restaurants_path
     assert_response :success
     assert_select("h1", "Restaurants")
@@ -19,7 +19,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_select("h1", @restaurant.name)
   end
 
-  test "can create new restaurant" do
+  test "can create restaurant" do
     sign_in @user
     get new_restaurant_path
     assert_response :success
@@ -28,6 +28,11 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
       post restaurants_path, params: { restaurant: { name: "Pho Dac Biet", description: "Southern Vietnamese comfort food in Houston", category: "Vietnamese" } }
     end
     assert_redirected_to restaurant_path(Restaurant.last)
+  end
+
+  test "redirected if trying to create restaurant without signing in" do
+    get new_restaurant_path
+    assert_response :redirect
   end
 
   test "can update restaurant as owner of restaurant" do
@@ -41,12 +46,24 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to restaurant_path(@restaurant)
   end
 
+  test "cannot update restaurant if not owner of restaurant" do
+    sign_in @user
+  end
+
   test "can destroy restaurant as owner of restaurant" do
     sign_in @user
     get restaurant_path(@restaurant)
     assert_difference("Restaurant.count", -1) do
       delete restaurant_path(@restaurant)
     end
-    assert_redirected_to restaurants_path
+  end
+
+  test "cannot destroy restaurant if not owner of restaurant" do
+    sign_in @user
+    not_my_restaurant = restaurants(:guitarra_de_cazon)
+    get restaurant_path(not_my_restaurant)
+    assert_no_difference("Restaurant.count") do
+      delete restaurant_path(not_my_restaurant)
+    end
   end
 end

@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-CATEGORIES = ["Thai", "Mexican", "American", "Vietnamese"].sort
+CATEGORIES = ["Thai", "Mexican", "American", "Vietnamese", "Peruvian"].sort
 
   belongs_to :user
   validates :name, presence: true

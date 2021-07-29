@@ -4,10 +4,10 @@ tierra_del_fuego:
   name: Tierra del Fuego
   description: Great little taco truck to get authentic and delicious tacos
   category: Mexican
-  user_id: regular_one
+  user: john
 
-two:
-  name: MyString
-  description: MyText
-  category: MyText
-  user_id: regular_two
+guitarra_de_cazon:
+  name: Guitarra de Cazon
+  description: Low-key Peruvian restaurant with friendly service
+  category: Peruvian
+  user: regular_two
