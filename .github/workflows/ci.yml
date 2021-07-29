@@ -8,7 +8,7 @@ jobs:
         image: postgres:11
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: ""
           POSTGRES_DB: test
         ports: ["5432:5432"]
         options: >-
@@ -33,7 +33,6 @@ jobs:
       - name: Build and run tests
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
-          TEST_DEV_DATABASE_PASSWORD: postgres
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
