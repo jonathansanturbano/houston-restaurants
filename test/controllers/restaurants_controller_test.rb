@@ -62,7 +62,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     not_my_restaurant = restaurants(:guitarra_de_cazon)
     get restaurant_path(not_my_restaurant)
-    assert_no_difference("Restaurant.count") do
+    assert_raises(Pundit::NotAuthorizedError) do
       delete restaurant_path(not_my_restaurant)
     end
   end
