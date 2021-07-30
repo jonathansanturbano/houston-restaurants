@@ -36,6 +36,9 @@ gem 'pundit', '~> 2.1'
 # Better forms
 gem 'simple_form'
 
+# Seeds fake data
+gem 'faker', '~> 2.18'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
