@@ -21,6 +21,9 @@ users = User.all
   restaurant.image.attach(io: file, filename: restaurant.name)
 end
 
-Restaurant.create!(name: "Bananas Thai", description: "family-friendly restaurant with delicious Thai food", category: "Thai", user: User.last)
-Restaurant.create!(name: "Five Guys", description: "family-friendly restaurant with delicious Burgers and Fries", category: "Thai", user: User.last)
-Restaurant.create!(name: "Tierra del Fuego", description: "Best tacos for sure in Houston", category: "Thai", user: User.last)
+restaurant = Restaurant.create!(name: "Bananas Thai", description: "family-friendly restaurant with delicious Thai food", category: "Thai", user: User.last)
+file = URI.open("https://source.unsplash.com/random/800x600")
+restaurant.image.attach(io: file, filename: restaurant.name)
+
+restaurant = Restaurant.create!(name: "Five Guys", description: "family-friendly restaurant with delicious Burgers and Fries", category: "Thai", user: User.last)
+restaurant = Restaurant.create!(name: "Tierra del Fuego", description: "Best tacos for sure in Houston", category: "Thai", user: User.last)
