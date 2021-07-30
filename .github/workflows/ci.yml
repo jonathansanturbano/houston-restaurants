@@ -29,7 +29,6 @@ jobs:
           node-version: "14"
           cache: "yarn"
       - run: yarn install
-      - run: yarn test
       - name: Build and run tests
         env:
           POSTGRES_HOST: postgres
