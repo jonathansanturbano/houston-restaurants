@@ -1,6 +1,7 @@
 <%= link_to restaurant_path(restaurant) do %>
-  <article class="restaurant-card group text-center rounded h-full hover:bg-blue-100 ring-0 ring-blue-400 hover:ring-2 transition duration-300 p-8" style="background:linear-gradient(to right, transparent, mistyrose),url(<%= rails_blob_url(restaurant.image) if restaurant.image.attached?%>)">
-    <h2 class="text-lg font-semibold group-hover:underline transition duration-300"><%= restaurant.name %></h2>
-    <p><%= restaurant.description %></p>
+  <article class="restaurant-card group text-center rounded h-40 hover:bg-blue-100 ring-0 ring-blue-400 hover:ring-2 transition duration-300 p-8" style="background:linear-gradient(to right, rgba(230, 230, 230, 0.5), rgba(230, 230, 230, 0.5)),url(<%= rails_blob_url(restaurant.image) if restaurant.image.attached?%>)">
+    <h2 class="text-lg font-semibold group-hover:underline transition duration-300">
+      <%= restaurant.name %>
+    </h2>
   </article>
 <% end %>
