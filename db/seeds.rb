@@ -14,16 +14,23 @@ end
 users = User.all
 
 
+i = 0
 
 10.times do |restaurant|
   restaurant = Restaurant.create!(name: Faker::Restaurant.name, description: Faker::Restaurant.description, category: CATEGORIES.sample, user: users.sample)
-  file = URI.open("https://source.unsplash.com/random/800x600")
+  file = URI.open("https://source.unsplash.com/800x600/?food/#{i}")
   restaurant.image.attach(io: file, filename: restaurant.name)
+  i = i + 1
 end
 
 restaurant = Restaurant.create!(name: "Bananas Thai", description: "family-friendly restaurant with delicious Thai food", category: "Thai", user: User.last)
-file = URI.open("https://source.unsplash.com/random/800x600")
+file = URI.open("https://source.unsplash.com/800x600/?food/11")
 restaurant.image.attach(io: file, filename: restaurant.name)
 
 restaurant = Restaurant.create!(name: "Five Guys", description: "family-friendly restaurant with delicious Burgers and Fries", category: "Thai", user: User.last)
+file = URI.open("https://source.unsplash.com/800x600/?food/12")
+restaurant.image.attach(io: file, filename: restaurant.name)
+
 restaurant = Restaurant.create!(name: "Tierra del Fuego", description: "Best tacos for sure in Houston", category: "Thai", user: User.last)
+file = URI.open("https://source.unsplash.com/800x600/?food/13")
+restaurant.image.attach(io: file, filename: restaurant.name)
