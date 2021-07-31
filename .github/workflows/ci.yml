@@ -30,7 +30,7 @@ jobs:
           cmd: install # will run `yarn install` command
       - name: Build and run tests
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          DATABASE_URL: postgres://postgres:@localhost:5432/restaurants_test
           POSTGRES_HOST: postgres
           POSTGRES_PASSWORD: postgres
           # The default PostgreSQL port
