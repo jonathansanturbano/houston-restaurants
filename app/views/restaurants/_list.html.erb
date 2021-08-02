@@ -1,0 +1,13 @@
+<div class="grid grid-cols-3 gap-4" data-refresh-list-target="list">
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <article class="restaurant-card group text-center relative rounded h-40 hover:bg-blue-100 ring-0 ring-indigo-400 shadow-sm hover:ring-2 hover:ring-indigo-400 transition duration-300" style="background:linear-gradient(to right, rgba(230, 230, 230, 0.5), rgba(230, 230, 230, 0.5)),url(<%= rails_blob_url(restaurant.image) if restaurant.image.attached?%>)">
+        <div class="absolute bottom-0 w-full text-center bg-gray-100">
+          <h2 class="text-lg font-semibold group-hover:underline transition duration-300">
+            <%= restaurant.name %>
+          </h2>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
+</div>

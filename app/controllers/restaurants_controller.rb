@@ -3,7 +3,15 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @restaurants = policy_scope(Restaurant)
+    if params[:category]
+      @restaurants = policy_scope(Restaurant).where(category: params[:category])
+    else
+      @restaurants = policy_scope(Restaurant)
+    end
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'restaurants/list', locals: { restaurants: @restaurants }, formats: [:html] }
+    end
   end
 
   def show

@@ -1,0 +1,22 @@
+.tag-item {
+  display: inline-block;
+}
+
+.my-class {
+  position: absolute;
+  transform: scale(0);
+}
+
+.my-class + label {
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 15px 30px;
+  border: 1px solid purple;
+  background-color: transparent;
+  transition: all 0.3s ease-in;
+}
+
+.my-class:checked + label {
+  background-color: purple;
+  color: white;
+}

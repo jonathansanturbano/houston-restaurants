@@ -1,4 +1,12 @@
 <h1 class="text-center text-2xl">Restaurants</h1>
-<div class="grid grid-cols-3 gap-4">
-  <%= render @restaurants %>
+<div data-controller="refresh-list">
+  <%= form_with url: restaurants_path, class: "w-3/4 m-auto flex justify-evenly mt-12 mb-12", data: { refresh_list_target: 'form' } do |f| %>
+    <% Restaurant::CATEGORIES.each_with_index do |category, index| %>
+      <div class="tag-item">
+        <%= f.radio_button :category, category, class: "my-class", data: { refresh_list_target: 'input', refresh_list_food_value: category, action: "click->refresh-list#update" } %>
+        <%= f.label "category_#{category.downcase}", category %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= render "restaurants/list" %>
 </div>

@@ -66,4 +66,10 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
       delete restaurant_path(not_my_restaurant)
     end
   end
+
+  test "can search for restaurants by category" do
+    get restaurants_path, params: {category: "Mexican"}
+    assert_select("h2", text: "Tierra del Fuego", count: 1)
+    assert_select("h2", text: "Guitarra de Cazon", count: 0)
+  end
 end
