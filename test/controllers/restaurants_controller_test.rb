@@ -25,9 +25,10 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select("h1", "Add new restaurant")
     assert_difference("Restaurant.count", +1) do
-      post restaurants_path, params: { restaurant: { name: "Pho Dac Biet", description: "Southern Vietnamese comfort food in Houston", category: "Vietnamese" } }
+      post restaurants_path, params: { restaurant: { name: "Pho Dac Biet", description: "Southern Vietnamese comfort food in Houston", category: "Vietnamese", image: fixture_file_upload("files/tierra.jpeg", "image/jpeg") } }
     end
     assert_redirected_to restaurant_path(Restaurant.last)
+    assert_equal "tierra.jpeg", Restaurant.last.image.filename.to_s
   end
 
   test "redirected if trying to create restaurant without signing in" do

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: john
+  restaurant: tierra_del_fuego
+  description: Disgusting restaurant
+  rating: 1
+
+two:
+  user: regular_two
+  restaurant: tierra_del_fuego
+  description: Amazing Restaurant
+  rating: 5
