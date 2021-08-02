@@ -1,0 +1,11 @@
+tierra_del_fuego_image:
+  name: "image"
+  record_type: "Restaurant"
+  record_id: <%= ActiveRecord::FixtureSet.identify(:tierra_del_fuego) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:tierra_del_fuego_image_blob) %>
+
+guitarra_de_cazon_image:
+  name: "image"
+  record_type: "Restaurant"
+  record_id: <%= ActiveRecord::FixtureSet.identify(:guitarra_de_cazon) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:guitarra_de_cazon_image_blob) %>

@@ -13,6 +13,11 @@ class RestaurantTest < ActiveSupport::TestCase
     assert restaurant.errors.empty?
   end
 
+  def test_image
+    image = @restaurant.image
+    assert image.attached?
+  end
+
   test "can create restaurant with valid name attribute" do
     restaurant = Restaurant.new(name: "Bananas Thai")
     restaurant.valid?

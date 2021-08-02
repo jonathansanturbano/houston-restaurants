@@ -1,0 +1,13 @@
+tierra_del_fuego_image_blob:
+  key: "12345"
+  filename: "tierra.jpeg"
+  content_type: "image/jpeg"
+  byte_size: 100
+  checksum: 12345
+
+guitarra_de_cazon_image_blob:
+  key: "23456"
+  filename: "guitarra.jpeg"
+  content_type: "image/jpeg"
+  byte_size: 100
+  checksum: 23456
