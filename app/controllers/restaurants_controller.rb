@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:category]
+    if params[:category].present?
       @restaurants = policy_scope(Restaurant).where(category: params[:category])
     else
       @restaurants = policy_scope(Restaurant)

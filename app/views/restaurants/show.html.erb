@@ -1,3 +1,7 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.description %></p>
-<p><%= @restaurant.category.capitalize %></p>
+<div class="text-center">
+  <%= link_to "Back to list", restaurants_path, class: "absolute left-0.5 py-2 px-5 underline" %>
+  <h1><%= @restaurant.name %></h1>
+  <%= image_tag @restaurant.image, class: "m-auto " %>
+  <p><%= @restaurant.description %></p>
+  <p><%= @restaurant.category.capitalize %></p>
+</div>

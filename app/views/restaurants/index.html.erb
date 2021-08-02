@@ -7,6 +7,10 @@
         <%= f.label "category_#{category.downcase}", category %>
       </div>
     <% end %>
+    <div class="tag-item">
+      <%= f.radio_button :category, "", class: "my-class", data: { refresh_list_target: 'input', refresh_list_food_value: "", action: "click->refresh-list#update" } %>
+      <%= f.label "", "Refresh" %>
+    </div>
   <% end %>
   <%= render "restaurants/list" %>
 </div>
